@@ -1,0 +1,20 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: Schedule
+metadata:
+  name: web-show-scheduled-network-delay
+spec:
+  schedule: '@every 60s'
+  type: NetworkChaos
+  historyLimit: 5
+  concurrencyPolicy: Forbid
+  networkChaos:
+    action: delay
+    mode: one
+    selector:
+      namespaces:
+      - default
+      labelSelectors:
+        app: web-show
+    delay:
+      latency: 10ms
+    duration: 30s

@@ -1,0 +1,1 @@
+helm repo add chaos-mesh https://charts.chaos-mesh.org && helm repo list

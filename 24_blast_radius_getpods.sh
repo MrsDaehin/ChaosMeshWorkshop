@@ -1,0 +1,1 @@
+kubectl get -n chaos-sandbox deployments,pods,services -l chaos=blast-here

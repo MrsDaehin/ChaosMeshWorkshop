@@ -1,0 +1,1 @@
+kubectl get pods --namespace chaos-mesh -l app.kubernetes.io/instance=chaos-testing && kubectl get deployments,pods,services --namespace chaos-testing

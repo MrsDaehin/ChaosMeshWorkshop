@@ -1,0 +1,1 @@
+kubectl annotate schedule web-show-scheduled-network-delay experiment.chaos-mesh.org/pause=true

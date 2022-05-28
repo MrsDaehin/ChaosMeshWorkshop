@@ -1,0 +1,1 @@
+kubectl annotate networkchaos web-show-network-delay experiment.chaos-mesh.org/pause-

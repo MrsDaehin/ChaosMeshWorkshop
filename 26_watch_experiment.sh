@@ -1,0 +1,1 @@
+watch kubectl get -n chaos-sandbox deployments,pods,services

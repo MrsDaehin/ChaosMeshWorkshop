@@ -1,0 +1,26 @@
+kind: Schedule
+apiVersion: chaos-mesh.org/v1alpha1
+metadata:
+  namespace: app-demo
+  name: every2min
+spec:
+  schedule: '*/5 * * * *'
+  startingDeadlineSeconds: null
+  concurrencyPolicy: Forbid
+  historyLimit: 1
+  type: StressChaos
+  stressChaos:
+    selector:
+      namespaces:
+        - app-demo
+      labelSelectors:
+        app: nginx
+    mode: all
+    stressors:
+      memory:
+        workers: 1
+        size: '10'
+      cpu:
+        workers: 1
+        load: 1
+    duration: 10s
