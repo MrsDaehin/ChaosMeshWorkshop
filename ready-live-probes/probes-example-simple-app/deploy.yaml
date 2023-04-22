@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ready-live-example
+spec:
+  selector:
+    matchLabels:
+      app: ready-live-example
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ready-live-example
+    spec:
+      containers:
+      - name: ready-live-test
+        image: ready-live-example:0.0.1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+          name: https
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 5
+          httpGet:
+            path: /ready
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 3
+          timeoutSeconds: 5
+        livenessProbe:
+          failureThreshold: 30
+          httpGet:
+            path: /live
+            port: 8080
+          initialDelaySeconds: 0
+          periodSeconds: 3
+          timeoutSeconds: 5
+        env:
+          - name: FAIL_READY
+            value: "False"
+          - name: FAIL_LIVE
+            value: "False"
+          - name: LIVE_FAIL_MSG
+            value: "Unable to retry for long time - restarting service"
+          - name: READY_FAIL_MSG
+            value: "Unable to reachout to external service"
