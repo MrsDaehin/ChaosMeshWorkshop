@@ -31,3 +31,5 @@ This is a workshop to install LitmusChaos & execute a chaos scenario on a simple
 
 6. Re-run the chaos scenario with mitigation to check whether the desired resilience characteristics are achieved. 
 
+
+https://www.youtube.com/watch?v=259I52_Zh3E
