@@ -1,40 +1,63 @@
-kubectl get pods -n <namespace>
-kubectl describe pod <podname>
-### check the events
-kubectl logs <podname>
+```
+eval $(minikube docker-env)
+docker ps 
+``` 
 
+### check the events
+```
+kubectl get pods -n <namespace>
+kubectl describe pod <podname>  
+kubectl logs <podname>
+```
 ### split terminal
+```
 watch -n 2 kubectl get pods
 kubectl apply -f step1-probes-not-configured.yaml
-
+```
 ### database is failing! remove a pod
+```
 sh db-not-ready.sh
-
+```
 ### add a probe
+```
 kubectl  apply -f step2-probes-without-endpoint.yaml
 kubectl describe pod <podname>
-
+```
 ### new image, app no checks it doesn't check anything
+```
 kubectl apply -f step3-probes-without-checks.yaml   ### notice it takes a bit to start as there is a delay configured
-
+```
 ### start the database
+```
 sh db-ready.sh
-<-- readiness is not only part of the startup it is always running in background we expect the pod to be changed any time the database is going down the pod should be down
+```
+- readiness is not only part of the startup it is always running in background we expect the pod to be changed any time the database is going down the pod should be down
 
 ###  new image, 
+```
 cd 4_app_basic_check/
 docker build . -t app-basic-check:0.0.1
-
+```
+### add a probe
+```
 kubectl apply -f step4-probes-with-basic-check.yaml
+```
 
 ### the pod will fail but too slow we can improve that
+```
 kubectl -f apply step5-probes-with-adjusted-thresholds.yaml
-
+```
 ### retrieve the logs from the pod and container to see why the pod is failing ( you can see the readiness probe fails )
+```
 kubectl logs <podname>
+```
 
 ### last image with more checks to the database ( select, insert ... )
+```
 cd 6_app_adv_check/
 docker build . -t app-adv-check:0.0.1
-
+```
+### add a probe
+```
 kubectl apply -f step6-probes-with-adv-check.yaml -n test
+```
