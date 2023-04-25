@@ -1,1 +1,6 @@
 /token
+## virtualenv 
+/bin
+/lib
+/lib64
+pyvenv.cfg
