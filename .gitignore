@@ -5,5 +5,4 @@
 /lib64
 pyvenv.cfg
 jmeter.log
-rbac.yaml
 ChaosMesh/rbac.yaml
