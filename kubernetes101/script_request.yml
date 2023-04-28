@@ -8,4 +8,4 @@ execution:
 scenarios:
   test:
     requests:
-    - http://92.168.49.2:30231
+    - http://localhost:40539
