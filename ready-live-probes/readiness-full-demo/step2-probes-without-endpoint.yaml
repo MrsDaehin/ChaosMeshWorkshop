@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: app-ready-example
-        image: app-no-probes:0.0.2
+        image: app-no-probes:0.0.1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
