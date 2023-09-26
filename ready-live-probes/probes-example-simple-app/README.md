@@ -1,4 +1,4 @@
-# Liveness/Readiness proves example
+# Liveness/Readiness probes example
 
 ## How To Run?
 0. Pushing directly to the in-cluster Docker daemon (docker-env)
