@@ -1,6 +1,6 @@
-VERSION=2.1.5 && helm install chaos-mesh chaos-mesh/chaos-mesh \
+VERSION=2.5.2 && helm install chaos-mesh chaos-mesh/chaos-mesh \
   --version $VERSION \
-  --namespace chaos-mesh \
+  --namespace chaos-testing \
   --create-namespace \
   --set chaosDaemon.env.DOCKER_API_VERSION="1.40" \
   --set dashboard.securityMode=false \
