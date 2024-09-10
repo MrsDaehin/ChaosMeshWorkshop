@@ -1,14 +1,16 @@
 # Setup with Windows
 
 ### Installing a Hypervisor
-  
+
 A hypervisor allows you to create and run virtual machines. [VirtualBox](https://www.virtualbox.org/wiki/Downloads) will be the hypervisor we'll be using for this exercise, so make sure you download and install the packages for your operating system:
 
-* [If you are running a Windows machine, use this link](https://download.virtualbox.org/virtualbox/6.0.14/VirtualBox-6.0.14-133895-Win.exe)
+- [If you are running a Windows machine, use this link](https://download.virtualbox.org/virtualbox/6.0.14/VirtualBox-6.0.14-133895-Win.exe)
 
 ### Installing minikube
 
 You can install `minikube` using Windows installer by downloading and installing [this package](https://github.com/kubernetes/minikube/releases/latest/download/minikube-installer.exe).
+
+https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download
 
 ### Installing kubectl
 

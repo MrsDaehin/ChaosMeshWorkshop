@@ -38,6 +38,27 @@ cd 1_app_no_probes/
 docker build . -t app-no-probes:0.0.1
 ```
 
+```
+eval $(minikube docker-env)
+docker ps
+cd 2_app_no_checks/
+docker build . -t app-no-checks:0.0.1
+```
+
+```
+eval $(minikube docker-env)
+docker ps
+cd 4_app_basic_check/
+docker build . -t app-basic-check:0.0.1
+```
+
+```
+eval $(minikube docker-env)
+docker ps
+cd 6_app_adv_check/
+docker build . -t app-adv-check:0.0.1
+```
+
 ### check the events
 
 ```
@@ -96,7 +117,7 @@ kubectl apply -f step4-probes-with-basic-check.yaml
 ### the pod will fail but too slow we can improve that
 
 ```
-kubectl -f apply step5-probes-with-adjusted-thresholds.yaml
+kubectl apply -f step5-probes-with-adjusted-thresholds.yaml
 ```
 
 ### retrieve the logs from the pod and container to see why the pod is failing ( you can see the readiness probe fails )
