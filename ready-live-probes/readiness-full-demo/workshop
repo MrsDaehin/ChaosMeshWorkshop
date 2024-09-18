@@ -1,9 +1,19 @@
 
+
+kubectl config current-context
+
+
+check if you are in minikube 
+
+
 ## Setup DB
 ``` bash
 helm repo add bitnami https://charts.bitnami.com/bitnami;
 helm install postgres bitnami/postgresql --set auth.postgresPassword=postgres
 ```
+
+
+
 
 Connect to the DB:
 ``` bash
@@ -28,10 +38,12 @@ VALUES('demo', 'aaa@demo-test.com', CURRENT_DATE);
 
 ## SETUP IMAGES
 
+mount images in docker to create application in K8s. 
+
 ```
 eval $(minikube docker-env)
 docker ps 
-cd cd 1_app_no_probes/
+cd ready-live-probes/readiness-full-demo/apps/1_app_no_probes/
 docker build . -t app-no-probes:0.0.1
 ``` 
 
@@ -55,6 +67,12 @@ sh db-not-ready.sh
 kubectl  apply -f step2-probes-without-endpoint.yaml
 kubectl describe pod <podname>
 ```
+eval $(minikube docker-env)
+docker ps 
+cd ready-live-probes/readiness-full-demo/apps/2_app_no_checks/
+docker build . -t app-no-checks:0.0.1
+
+
 ### new image, app no checks it doesn't check anything
 ```
 kubectl apply -f step3-probes-without-checks.yaml   ### notice it takes a bit to start as there is a delay configured

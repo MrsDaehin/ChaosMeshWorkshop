@@ -1,4 +1,4 @@
-VERSION=2.5.2 && helm install chaos-mesh chaos-mesh/chaos-mesh \
+VERSION=2.6.4 && helm install chaos-mesh chaos-mesh/chaos-mesh \
   --version $VERSION \
   --namespace chaos-testing \
   --create-namespace \
